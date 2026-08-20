@@ -1111,3 +1111,15 @@ body {
   opacity: 1;
   pointer-events: all;
 }
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  /* Show revealed content immediately — JS still adds .visible, but nothing animates */
+  .reveal { opacity: 1; transform: none; }
+}
